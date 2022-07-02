@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Demo styles -->
+    <style>
+        * {
+            transition-duration: 0.5s;
+        }
+
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn {
+            width: 118px;
+            height: 45px;
+            background-color: rgb(99, 102, 241);
+            color: white;
+
+            margin-top: 70px;
+        }
+
+        .btn:hover.btn {
+            background-color: rgb(73, 75, 223);
+            color: white;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            left: -130px;
+            top: 30px;
+        }
+
+        .line-bar-1 {
+            width: 70px;
+        }
+
+
+        @media (max-width:990px) {
+            .dropdown-menu {
+                width: 800px;
+                position: absolute;
+                left: 0px;
+                top: 25px;
+            }
+
+            p {
+                font-size: 0.78rem;
+            }
+
+            .line-bar-1 {
+                width: 30px;
+            }
+        }
+
+        @media (max-width:644px) {
+            .line-bar-1 {
+                width: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-between container-lg"
+        style="background-color: rgb(255 , 255, 255); ">
+        <a href="./index.html"><img class="p-2" src="./images/資產 1.svg" alt="logo" style="width:105px;"></a>
+        <div class="justify-content-end">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-0 bg-white mt-4" style="z-index: 2;font-size: 0.9rem"
+            id="navbarNavAltMarkup">
+            <a class="nav-item nav-link mr-lg-4 d-flex justify-content-center btn-outline-secondary rounded"
+                href="#"><b>Blog</b></a>
+            <a class="nav-item nav-link mr-lg-4   d-flex justify-content-center btn-outline-secondary rounded"
+                href="#"><b>Portfolio</b></a>
+            <a class="nav-item nav-link mr-lg-4  d-flex justify-content-center btn-outline-secondary rounded"
+                href="#"><b>About</b></a>
+            <a class="nav-item nav-link mr-lg-1 d-flex justify-content-center btn-outline-secondary rounded"
+                href="#"><b>Contact</b></a>
+            <div class="nav-item d-flex justify-content-center position-relative">
+                <a class="nav-item nav-link text-right p-lg-2 p-3 rounded text-secondary" href="./shop_1.html"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
+                        class="bi bi-cart-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg></a>
+                <a id="btnDrop-login" type="button"
+                    class="position-relative  nav-item nav-link text-left p-lg-2 p-3 rounded text-secondary"
+                    data-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="27"
+                        height="27" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                </a>
+                <div class="dropdown-menu position-absolute ml-lg-5" style="top:47px;width: 100%;"
+                    aria-labelledby="btnDrop-login">
+                    <a class="dropdown-item" href="./login.html">Login</a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="d-flex justify-content-center align-content-center py-5"
+            style="background-color: rgb(209, 213, 219);">
+            <div class="colomn rounded p-5 mx-lg-0 mx-5" style="width: 1024px;background-color: rgb(243, 244, 246)">
+                <h2>購物車</h2>
+                <div class="row py-4 px-lg-5 px-4 d-flex justify-content-between align-items-center">
+                    <div class="col-1 d-flex flex-column align-items-center">
+                        <div class="rounded-circle d-flex justify-content-center align-items-center text-white"
+                            style="background-color: rgb(18, 184, 129);width: 42px;height: 42px;">1</div>
+                    </div>
+                    <div class="col-sm-2 col-1 rounded" style="background-color: rgb(229, 231, 235);height: 8px;">
+                        <div class="line-bar-1 position-absolute rounded ml-n3"
+                            style="background-color: rgb(110, 230, 183);height: 8px;"></div>
+                    </div>
+                    <div class="col-1 d-flex flex-column align-items-center ">
+                        <div class="rounded-circle d-flex justify-content-center align-items-center text-black-100"
+                            style="background-color: rgb(255, 255, 255);width: 42px;height: 42px;">2</div>
+                    </div>
+                    <div class="col-sm-2 col-1 rounded" style="background-color: rgb(229, 231, 235);height: 8px;"></div>
+                    <div class="col-1 d-flex flex-column align-items-center ">
+                        <div class="rounded-circle d-flex justify-content-center align-items-center text-black-100"
+                            style="background-color: rgb(255, 255, 255);width: 42px;height: 42px;">3</div>
+                    </div>
+                    <div class="col-sm-2 col-1 rounded" style="background-color: rgb(229, 231, 235);height: 8px;"></div>
+                    <div class="col-1 d-flex flex-column align-items-center ">
+                        <div class="rounded-circle d-flex justify-content-center align-items-center text-black-100"
+                            style="background-color: rgb(255, 255, 255);width: 42px;height: 42px;">4</div>
+                    </div>
+                </div>
+                <div class="row ml-lg-3 ml-0 mr-lg-5 mr-0 mt-n2 d-flex justify-content-between">
+                    <p class="ml-lg-0 mr-lg-0 ml-2 mr-n3">確認購物車</p>
+                    <p class="ml-n4 ml-lg-0 mr-lg-0 mr-2">付款與運送方式</p>
+                    <p class="pr-lg-3 pr-0 ml-lg-0 mr-lg-0 ml-n5 mr-3">填寫資料</p>
+                    <p class="mr-lg-n2 ml-lg-0 mr-4 ml-n5">完成訂購</p>
+                </div>
+                <div class="rounded mt-2" style="width: 100%; height: 1px;background-color: rgb(229, 231, 235);"></div>
+                <div class="column mt-3">
+                    <div class="mb-5">
+                        <span style="font-size: 1.5rem;">訂單明細</span>
+                    </div>
+                    <div class="container-fluid d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img class="rounded-circle" style="width: 60px;height: 60px;"
+                                src="https://upload.cc/i1/2022/04/18/RcrdU2.jpeg" alt="">
+                            <div class="ml-4 d-flex flex-column">
+                                <p>Chicken momo</p>
+                                <p class="mt-n3 text-secondary"><small>#41551</small></p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button id="minus" class="border-0" style="background-color: unset;">-</button>
+                            <input type="text" id="quantity" class="border rounded px-1 mx-2 h-50"
+                                style="width: 30px;background-color: rgb(241, 241, 241);" value="1">
+                            <button id="plus" onclick="plusMark()" class="border-0" style="background-color: unset;">+</button>
+                            <small class="ml-4">$10.50</small>
+                        </div>
+                    </div>
+                    <div class="rounded mt-3" style="width: 100%; height: 1px;background-color: rgb(229, 231, 235);">
+                    </div>
+                    <div class="my-4 container-fluid d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img class="rounded-circle" style="width: 60px;height: 60px;"
+                                src="https://upload.cc/i1/2022/04/18/Frkm4g.jpeg" alt="">
+                            <div class="ml-4 d-flex flex-column">
+                                <p>Spicy Mexican potatoes</p>
+                                <p class="mt-n3 text-secondary"><small>#66999</small></p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button id="minus" class="border-0" style="background-color: unset;">-</button>
+                            <input type="text" id="quantity" class="border rounded px-1 mx-2 h-50"
+                                style="width: 30px;background-color: rgb(241, 241, 241);" value="1">
+                            <button id="plus" onclick="plusMark()" class="border-0" style="background-color: unset;">+</button>
+                            <small class="ml-4">$10.50</small>
+                        </div>
+                    </div>
+                    <div class="rounded mt-3 my-4"
+                        style="width: 100%; height: 1px;background-color: rgb(229, 231, 235);"></div>
+                    <div class="container-fluid d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img class="rounded-circle" style="width: 60px;height: 60px;"
+                                src="https://upload.cc/i1/2022/04/18/IHVuqk.jpeg" alt="">
+                            <div class="ml-4 d-flex flex-column">
+                                <p>Breakfast</p>
+                                <p class="mt-n3 text-secondary"><small>#86577</small></p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button id="minus" class="border-0" style="background-color: unset;">-</button>
+                            <input type="text" id="quantity" class="border rounded px-1 mx-2 h-50"
+                                style="width: 30px;background-color: rgb(241, 241, 241);" value="1">
+                            <button id="plus" onclick="plusMark()" class="border-0" style="background-color: unset;">+</button>
+                            <small class="ml-4">$10.50</small>
+                        </div>
+                    </div>
+                    <div class="rounded mt-3 my-4"
+                        style="width: 100%; height: 1px;background-color: rgb(229, 231, 235);"></div>
+                    <div class="col-12 d-flex flex-column align-items-end text-left">
+                        <div class="d-flex justify-content-between w-25">
+                            <small class="mr-2 text-secondary">數量:</small>
+                            <h6 class="">3</h6>
+                        </div>
+                        <div class="d-flex justify-content-between w-25 flex-nowrap">
+                            <small class="mr-2 text-secondary">小計:</small>
+                            <h6 class="">$24.90</h6>
+                        </div>
+                        <div class="d-flex justify-content-between w-25">
+                            <small class="mr-2 text-secondary">運費:</small>
+                            <h6 class=""> $24.90</h6>
+                        </div>
+                        <div class="d-flex justify-content-between w-25">
+                            <small class="mr-2 text-secondary">總計:</small>
+                            <h6 class=""> $24.90</h6>
+                        </div>
+                    </div>
+                    <div class="rounded mt-3 my-4"
+                        style="width: 100%; height: 1px;background-color: rgb(229, 231, 235);"></div>
+                    <div class="d-flex justify-content-between">
+                        <div class="row">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                            </svg>
+                            <a href="./index.html" class="ml-n1" style="color:black">返回購物</a>
+                        </div>
+                        <a href="./shop_2.html"><button class="btn mt-0" type="button">下一步</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="row p-0 m-auto">
+        <div class="row w-100 p-0 m-0 py-5">
+            <div
+                class="col-12 col-md-4 p-0 m-0 d-flex justify-content-center flex-column align-items-center text-md-left text-center ml-xl-n5 pl-md-5">
+                <div class="row m-0 ml-md-3 p-0 border-0 d-flex align-items-center justify-content-center justify-content-md-start "
+                    style="height: 40px; width:256px; background-color: unset;">
+                    <svg class="text-white" style="width:40px; height:40px;" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 40 40">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #162446;
+                                }
+
+                                .cls-2 {
+                                    fill: #fff;
+                                }
+                            </style>
+                        </defs>
+                        <title>資產 2</title>
+                        <g id="圖層_2" data-name="圖層 2">
+                            <g id="圖層_1-2" data-name="圖層 1">
+                                <circle class="cls-1" cx="20" cy="20" r="20"></circle>
+                                <path class="cls-2"
+                                    d="M20,7l7.13,4.11a7.91,7.91,0,0,1,3.95,6.84v6.8l-8.61-5V18.32l7.37,4.26V18.63a7.89,7.89,0,0,0-3.95-6.85L21.28,9.1V33.25L9,26.14V13.35l5.89,3.4a7.91,7.91,0,0,1,3.95,6.85v4.76l-1.23-.71V24.31a7.92,7.92,0,0,0-4-6.85l-3.42-2v9.94L20,31.11Z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="ml-2"
+                        style=" letter-spacing:1px; font-size:1.25rem; line-height: 1.75rem; text-decoration: none; color:#162446;">數位方塊</span>
+                </div>
+                <p class="mt-2 ml-md-n5 text-secondary"><small>Air plant banjo lyft occupy retro<br>
+                        adaptogen indego</small></p>
+            </div>
+
+            <div class="row col-12 col-md-8 m-0 p-0 mt-4 text-center text-md-left">
+                <div class="col-12 col-md-6 col-lg-3 p-0 m-0 d-flex flex-column justify-content-start align-items-center align-items-lg-start"
+                    style="height: 168px;">
+                    <h6>CATEGORIES</h6>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">First Link</a></li>
+                        <li><a class="text-muted" href="#">Second Link</a></li>
+                        <li><a class="text-muted" href="#">Third Link</a></li>
+                        <li><a class="text-muted" href="#">Fourth Link</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 p-0 m-0 d-flex flex-column justify-content-start align-items-center align-items-lg-start"
+                    style="height: 168px;">
+                    <h6>CATEGORIES</h6>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">First Link</a></li>
+                        <li><a class="text-muted" href="#">Second Link</a></li>
+                        <li><a class="text-muted" href="#">Third Link</a></li>
+                        <li><a class="text-muted" href="#">Fourth Link</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 p-0 m-0 d-flex flex-column justify-content-start align-items-center align-items-lg-start"
+                    style="height: 168px;">
+                    <h6>CATEGORIES</h6>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">First Link</a></li>
+                        <li><a class="text-muted" href="#">Second Link</a></li>
+                        <li><a class="text-muted" href="#">Third Link</a></li>
+                        <li><a class="text-muted" href="#">Fourth Link</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 p-0 m-0  d-flex flex-column justify-content-start align-items-center align-items-lg-start"
+                    style="height: 168px;">
+                    <h6>CATEGORIES</h6>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">First Link</a></li>
+                        <li><a class="text-muted" href="#">Second Link</a></li>
+                        <li><a class="text-muted" href="#">Third Link</a></li>
+                        <li><a class="text-muted" href="#">Fourth Link</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="px-4 py-3 w-100 d-flex justify-content-center align-items-center"
+            style="background-color: rgba(243 , 244 , 246);">
+            <div class="flex-column flex-md-row d-flex w-100 justify-content-between  align-items-center flex-wrap ">
+                <small class="text-secondary ml-lg-5 pl-lg-5">© 2020 Tailblocks — @knyttneve</small>
+                <div class="media-icons mr-md-5">
+                    <a href="#" class="text-dark ml-2">
+                        <svg style="width:20px;" fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-5 h-5 text-secondary" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-dark ml-2">
+                        <svg style="width:20px;" fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-5 h-5 text-secondary" viewBox="0 0 24 24">
+                            <path
+                                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-dark ml-2">
+                        <svg style="width:20px;" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2" class="w-5 h-5 text-secondary" viewBox="0 0 24 24">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-dark ml-2">
+                        <svg style="width:20px;" fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-5 h-5 text-secondary" viewBox="0 0 24 24">
+                            <path stroke="none"
+                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                            </path>
+                            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            mousewheel: true,
+            keyboard: true,
+        });
+
+
+    </script>
+
+    <script>
+
+        var minus = document.querySelectorAll('#minus')
+        var i = document.getElementById("quantity")
+
+        function plusMark() {
+            
+            console.log("hi")
+            i = parseInt(i) + 1
+            document.getElementById("quantity").innerHTML = i
+        }
+    </script>
+</body>
+
+</html>
